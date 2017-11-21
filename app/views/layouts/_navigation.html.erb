@@ -1,0 +1,26 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="/">Rapidshare</a>
+		</div>
+		<div id="navbar" class="navbar-collapse collapse">
+			<ul class="nav navbar-nav navbar-right">
+				<% if user_signed_in? %>
+				<li>
+					<div class="user_info ">
+						<img src="http://igert2012.videohall.com/images/defaults/small_default_profile.png">
+					</div>
+				</li> 
+				<li class="navbar-brand">
+					<%= current_user.email %>
+				</li>
+				<li>
+					<%= link_to "Log out", destroy_user_session_path, method: :delete %>
+				</li>
+				<% else %>
+				<li><%= link_to "Sign in", new_user_session_path %></li>
+				<% end %>
+			</ul>
+		</div>
+	</div>
+</nav>

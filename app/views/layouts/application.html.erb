@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= content_for?(:title) ? yield(:title) : "Rapidshare" %></title>
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Rapidshare" %>">
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <% if user_signed_in? %>
+      <header>
+        <%= render 'layouts/navigation' %>
+      </header>
+    <% end %>
+    <main role="main">
+    <div class="main-content">
+      <%= render 'layouts/messages' %>
+      <%= yield %>
+    </div>
+    </main>
+  </body>
+</html>

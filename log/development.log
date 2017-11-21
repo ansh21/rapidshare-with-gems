@@ -1,0 +1,58 @@
+Started GET "/" for ::1 at 2017-11-21 13:24:13 +0530
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering home/landing.html.erb within layouts/application
+  Rendered home/landing.html.erb within layouts/application (136.5ms)
+  Rendered layouts/_messages.html.erb (0.7ms)
+Completed 200 OK in 250ms (Views: 241.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2017-11-21 13:24:15 +0530
+Processing by Users::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (22.5ms)
+  Rendered layouts/_messages.html.erb (0.6ms)
+Completed 200 OK in 119ms (Views: 103.5ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2017-11-21 13:24:18 +0530
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"GINEpDC0P1zx3qcsQvvNKY3DLop+0b7ak0RFI6XViVPZnpgdc0pb8/MIMfqK1+a8T/lu/npB+QkgAC4y0VDHmw==", "user"=>{"email"=>"a.g@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "a.g@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", "2017-11-21 07:54:18.854443"], ["last_sign_in_at", "2017-11-21 07:23:55.490172"], ["sign_in_count", 7], ["updated_at", "2017-11-21 07:54:18.855428"], ["id", 1]]
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 95ms (ActiveRecord: 2.5ms)
+
+
+Started GET "/" for ::1 at 2017-11-21 13:24:18 +0530
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mDocument Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "documents" WHERE "documents"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  [1m[36mDocument Load (0.2ms)[0m  [1m[34mSELECT "documents".* FROM "documents" WHERE "documents"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered home/index.html.erb within layouts/application (25.9ms)
+  Rendered layouts/_navigation.html.erb (0.9ms)
+  Rendered layouts/_messages.html.erb (1.0ms)
+Completed 200 OK in 75ms (Views: 62.9ms | ActiveRecord: 0.9ms)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2017-11-21 13:24:20 +0530
+Processing by Users::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"PnCskB0sGrnf+OBO6RnAc3Qqpp/2swo0KwiC0BJkstT6rwqRhGfo+so4s4cfVRPq0gCeVlSuOtHxof0SCSFMZg=="}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 4ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2017-11-21 13:24:20 +0530
+Processing by HomeController#index as HTML
+  Rendering home/landing.html.erb within layouts/application
+  Rendered home/landing.html.erb within layouts/application (1.2ms)
+  Rendered layouts/_messages.html.erb (0.8ms)
+Completed 200 OK in 44ms (Views: 43.6ms | ActiveRecord: 0.0ms)
+
+
